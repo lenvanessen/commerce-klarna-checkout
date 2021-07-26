@@ -11,12 +11,24 @@ use ellera\commerce\klarna\gateways\Base;
  * Payments gateway for Klarna
  * https://developers.klarna.com/documentation/hpp/
  *
+ * @author Len van Essen
  * @package ellera\commerce\klarna\gateways
  */
 class Payments extends Base
 {
-    // Public Variables
-    // =========================================================================
+    /**
+     * Setting: Acquiring Channel
+     *
+     * @var string
+     */
+    public $acquiring_channel = 'Ecommerce';
+
+    /**
+     * Setting: Description
+     *
+     * @var string|null
+     */
+    public $description;
 
     /**
      * Gateway handle
@@ -24,4 +36,9 @@ class Payments extends Base
      * @var string
      */
     public $gateway_handle = 'klarna-payments';
+
+    public function supportsWebhooks(): bool
+    {
+        return false;
+    }
 }

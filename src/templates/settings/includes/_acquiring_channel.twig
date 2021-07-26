@@ -1,0 +1,9 @@
+<h2>Aquiring Channel</h2>
+{% import "_includes/forms" as forms %}
+
+{{ forms.textField({
+    label: gateway.getAttributeLabel('acquiring_channel'),
+    name: 'acquiring_channel',
+    value: gateway.acquiring_channel,
+    errors: gateway.getFirstError('acquiring_channel')
+}) }}
